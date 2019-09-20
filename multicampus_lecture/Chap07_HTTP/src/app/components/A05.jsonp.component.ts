@@ -45,6 +45,7 @@ export class A05Component  {
                 (data: Array<{title: string, desc: string, url: string}> ) => {
                     console.log(data);
                     this.wikiData = data;
+                    this.search.setValue('');
                 },
                 (error: string) => {
                     console.log(error);
