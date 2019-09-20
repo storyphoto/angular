@@ -8,9 +8,9 @@ import { ActivatedRoute } from '@angular/router';
         <div class="card-body">
             <h3>Product Argument Component</h3>
             <div>
-                Check: <br>
-                Name: <br>
-                Age: 
+                Check: {{check}}<br>
+                Name: {{name}}<br>
+                Age: {{age}}
             </div>
         </div>
     `
@@ -21,6 +21,16 @@ export class ProductArgsComponent{
     public age: number;
 
     constructor(public ac: ActivatedRoute){}
+
+    ngOnInit(): void {
+        this.ac.queryParams.subscribe(
+            (data: any) => {
+                this.check = data['check'];
+                this.name = data['name'];
+                this.age = data['age'];
+            }
+        )
+    }
 }
 
 

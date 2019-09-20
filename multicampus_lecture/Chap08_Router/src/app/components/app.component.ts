@@ -9,16 +9,16 @@ import { Component } from '@angular/core';
             </div>
 
             <div class="card-body">
-                <a>HOME</a> | 
-                <a>HOME</a> | 
-                <a>PRODUCT</a> |
+                <a routerLink="">HOME</a> | 
+                <a [routerLink]="['home']">HOME</a> | 
+                <a [routerLink]="['product']">PRODUCT</a> |
                 <br>
 
-                <a>PRODUCT PARAM 10</a> | 
-                <a>PRODUCT DATA</a> | 
-                <a>PRODUCT ARGS</a> | 
+                <a [routerLink]="[ '/productParam', 10 ]">PRODUCT PARAM 10</a> | 
+                <a [routerLink]="['/productData/200']">PRODUCT DATA</a> | 
+                <a [routerLink]="['/productArgs']" [queryParams]="{check: false, name: 'NolBu', age: 30}">PRODUCT ARGS</a> | 
 
-                <a>Child</a> | 
+                <a [routerLink]="['/productChild']">Child</a> | 
                 <a>Activate</a> | 
                 <br>
 
@@ -37,7 +37,7 @@ import { Component } from '@angular/core';
             </div>
 
             <div class="card-body">
-                
+                <router-outlet></router-outlet>
             </div>
         </div>
     `,

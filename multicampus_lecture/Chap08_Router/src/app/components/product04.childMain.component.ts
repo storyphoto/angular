@@ -8,10 +8,12 @@ import { ActivatedRoute } from '@angular/router';
             <h3>Product Child Component</h3>
             <div>
                 <p>
-                    <a>Description</a> | 
-                    <a>Seller Info</a>
+                    <!-- /는 Root를 의미하므로 "/seller/30" 는 에러 -->
+                    <a [routerLink]="['seller/30']">Description</a> | 
+                    <a [routerLink]="['desc']">Seller Info</a>
                 </p>
 
+                <router-outlet></router-outlet>
                 
             </div>
         </div>
