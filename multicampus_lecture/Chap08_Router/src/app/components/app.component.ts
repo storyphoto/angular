@@ -19,17 +19,17 @@ import { Component } from '@angular/core';
                 <a [routerLink]="['/productArgs']" [queryParams]="{check: false, name: 'NolBu', age: 30}">PRODUCT ARGS</a> | 
 
                 <a [routerLink]="['/productChild']">Child</a> | 
-                <a>Activate</a> | 
+                <a [routerLink]="['/productActive']">Activate</a> | 
                 <br>
 
-                <a>All View</a> | 
-                <a>Two View</a> | 
-                <a>One View</a> | 
+                <a [routerLink]="[ {outlets: {primary: 'subHome', two: 'content', three: 'about'}} ]">All View</a> | 
+                <a [routerLink]="[ {outlets: {primary: 'subHome', two: 'content', three: null}} ]">Two View</a> | 
+                <a [routerLink]="[ {outlets: {primary: 'subHome', two: null, three: null}} ]">One View</a> | 
                 <br>
 
-                <a>Luxury</a> | 
+                <a [routerLink]="['/luxury']">Luxury</a> | 
 
-                <a>Luxury Lazy</a> | 
+                <a [routerLink]="['/lazy/luxuryLazy']">Luxury Lazy</a> | 
                 <br>
                 
                 <button>HOME</button>
@@ -37,7 +37,18 @@ import { Component } from '@angular/core';
             </div>
 
             <div class="card-body">
-                <router-outlet></router-outlet>
+                <!-- name을 주지 않는 경우는 기본값이 primary 이다 -->
+                <router-outlet name="primary"></router-outlet>
+            </div>
+            <hr>
+
+            <div class="card-body">
+                <router-outlet name="two"></router-outlet>
+            </div>
+            <hr>
+
+            <div class="card-body">
+                <router-outlet name="three"></router-outlet>
             </div>
         </div>
     `,
